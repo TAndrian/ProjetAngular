@@ -1,0 +1,46 @@
+<input [(ngModel)]="id">
+<input readonly [(ngModel)]="id">
+  Mon id est : {{id}}
+
+  <BR>
+
+    Mon Pokemon selectionné est  : {{selectedPokeId}}
+  <BR>
+
+    <input [(ngModel)] = "searchPokeName">
+  <BR>
+
+    <select [(ngModel)]="selectedPokeId">
+      <option [value]="poke.id"
+      *ngFor="let poke of pokes | filterPokemonPipe :'name' : searchPokeName "> {{ poke.name }} </option>
+    </select>
+    <button (click)="go()" >GO</button>
+    Id du Pokemon selectionné : {{selectedPokeId}} <mat-icon>catching_pokemon</mat-icon>
+  <BR>
+
+    <div  *ngIf="pokeInfo">
+
+      <app-pokedetail [detail]= "pokeInfo"> </app-pokedetail>
+
+
+
+    </div>
+
+
+    <h1>"Clicker dans le champ en dessous pour voir quel jour on est " <mat-icon>mood</mat-icon></h1>
+    <p-calendar [(ngModel)]="myDate"></p-calendar>
+
+    <re-captcha (resolved)="resolved($event)" siteKey="6Lc_CLkaAAAAADmsz1YJyRwTw1gppf5LVPs_x0Df"></re-captcha>
+
+
+
+
+
+
+
+
+
+
+
+
+
